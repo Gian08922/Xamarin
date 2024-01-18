@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             x:Class="DagZaf.Views.ViewRestaurante.ListaRestaurante">
+    <ContentPage.Content>
+        <Grid Padding="30" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Spacing="0" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="RESTAURANTE" TextColor="#B4995D" FontFamily="ThemeFont" FontSize="45" HorizontalOptions="Center"/>
+                    <Label Text="Seleccione un Restaurante:" Margin="0,5,0,0" TextColor="#767677" Opacity="0.5" FontFamily="LightFont" FontSize="20" HorizontalOptions="Center"/>
+                </StackLayout>
+            </Grid>
+            <CollectionView Margin="0,40,0,0" Grid.Row="1"  SelectionMode="Single" VerticalScrollBarVisibility="Never"  
+                ItemsSource="{Binding Resturantes}" SelectionChanged="OnSelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="20" HorizontalItemSpacing="20" Span="2"/>
+                </CollectionView.ItemsLayout>
+                <d:CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Burger King</x:String>
+                        <x:String>Mc Donald's</x:String>
+                        <x:String>Vips</x:String>
+                        <x:String>Foster's Hollywood</x:String>
+                    </x:Array>
+                </d:CollectionView.ItemsSource>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10"
+                        RowDefinitions="Auto, *"
+                        ColumnDefinitions="Auto, *">
+                            <Image Grid.RowSpan="2"
+                       Source="{Binding ImgUrl}"
+                       Aspect="AspectFill"
+                       HeightRequest="60"
+                       WidthRequest="60" />
+                            <Label Grid.Column="1"
+                       Text="{Binding Nombre}"
+                       FontAttributes="Bold" />
+                            <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding Numero}"
+                       VerticalOptions="End" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

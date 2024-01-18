@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DagZaf.View.ViewAcceso.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+            <Grid RowSpacing="25">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Row="1" HorizontalOptions="Center">
+                    <Label Text="Register Now" TextColor="#B4995D" FontSize="18" WidthRequest="300" FontAttributes="Bold"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" HorizontalOptions="Center">
+                    <Frame HasShadow="True" HeightRequest="45" Padding="0,1,0,0">
+                        <Entry WidthRequest="275" HeightRequest="50" Placeholder="Username" FontSize="15" HorizontalOptions="Center" VerticalOptions="Center" 
+                               Keyboard="Text" HorizontalTextAlignment="Start" MaxLength="20"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="3" HorizontalOptions="Center">
+                    <Frame HasShadow="True" HeightRequest="45" Padding="0,1,0,0">
+                        <Entry WidthRequest="275" HeightRequest="50" Placeholder="Email" FontSize="15" HorizontalOptions="Center" VerticalOptions="Center" 
+                               Keyboard="Email" HorizontalTextAlignment="Start" MaxLength="20" Text="{Binding EmailTxt, Mode=TwoWay}"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="4" HorizontalOptions="Center">
+                    <Frame HasShadow="True" HeightRequest="45" Padding="0,1,0,0">
+                        <Entry WidthRequest="275" HeightRequest="50" Placeholder="Password" FontSize="15" HorizontalOptions="Center" VerticalOptions="Center" IsPassword="True" 
+                               Keyboard="Text" HorizontalTextAlignment="Start" MaxLength="20" Text="{Binding PasswordTxt, Mode=TwoWay}"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="5" HorizontalOptions="Center" Orientation="Horizontal">
+                    <Frame HasShadow="True" HeightRequest="45" Padding="0,1,0,0">
+                        <Entry WidthRequest="134" HeightRequest="50" Placeholder="First Name" FontSize="15" HorizontalOptions="Center" VerticalOptions="Center" 
+                               Keyboard="Text" HorizontalTextAlignment="Start" MaxLength="20" Text="{Binding FirstNameTxt, Mode=TwoWay}"/>
+                    </Frame>
+                    <Frame HasShadow="True" HeightRequest="45" Padding="0,1,0,0">
+                        <Entry WidthRequest="134" HeightRequest="50" Placeholder="Last Name" FontSize="15" HorizontalOptions="Center" VerticalOptions="Center" 
+                               Keyboard="Text" HorizontalTextAlignment="Start" MaxLength="20" Text="{Binding LastNameTxt, Mode=TwoWay}"/>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Grid.Row="6" HorizontalOptions="Center" Margin="15">
+                    <Frame Padding="0,4,0,4" HasShadow="True">
+                        <Button Text="Accept" HeightRequest="35" WidthRequest="275" TextColor="#B4995D" BackgroundColor="White" FontSize="12" FontAttributes="Bold" Command="{Binding RegisterCommand}" IsEnabled="{Binding IsEnabled}"/>
+                    </Frame>
+                    <ActivityIndicator Color="#B4995D" IsRunning="{Binding IsRunning}" IsVisible="{Binding IsVisible}"></ActivityIndicator>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
